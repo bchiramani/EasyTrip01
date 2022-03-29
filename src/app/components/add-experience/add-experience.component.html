@@ -1,0 +1,74 @@
+<section>
+    <div class="row">
+        <div class="col-sm-12  blog-item mb100 wow match-height">
+            <div class="row">
+                <div class="col-xs-12" style="margin-top:10px">
+                    <section class="dark-wrapper opaqued parallax" style="background-color:#646f68;color: #eceeea;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-8 " style="margin-top:50px;margin-bottom: 50px;text-align:center">
+                                    <div class="row">
+                                        <div class="col-lg-12 mb100 wow">
+                                            <h2 class="section-heading">{{title}}</h2>
+                                            <h3 class="section-subheading secondary-font"> and share it with others.</h3>
+                                        </div>
+                                    </div>
+                                    <div id="message"></div>
+                                    <div class="container">
+                                        <div class="col-10">
+                                            <form [formGroup]="experienceForm" class="main-contact-form wow">
+                                                <div class="row">
+                                                    <input type="text" class="form-control col-md-4 " formControlName="title" name="title" placeholder="The Title *" id="title" required data-validation-required-message="Please enter a title to your experience." />
+                                                    <div *ngIf="experienceForm.controls['title'].invalid && (experienceForm.controls['title'].touched || experienceForm.controls['title'].dirty)">
+                                                        <div *ngIf="experienceForm.controls['title'].errors.required" class="text-danger">
+                                                            title is required
+                                                        </div>
+                                                        <div *ngIf="experienceForm.controls['title'].errors.title" class="text-danger">
+                                                            invalid title
+                                                        </div>
+                                                        <div style="color: red">
+                                                            {{errMessageTitle}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="text" class="form-control col-md-4" formControlName="destination" name="destination" placeholder="The Destination *" id="destination" required data-validation-required-message="Please enter the destination." />
+                                                    <div *ngIf="experienceForm.controls['destination'].invalid && (experienceForm.controls['destination'].touched || experienceForm.controls['title'].dirty)">
+                                                        <div *ngIf="experienceForm.controls['destination'].errors.required" class="text-danger">
+                                                            destination is required
+                                                        </div>
+                                                        <div *ngIf="experienceForm.controls['destination'].errors.destination" class="text-danger">
+                                                            invalid title
+                                                        </div>
+                                                        <div style="color: red">
+                                                            {{errMessageDestination}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <input type="textArea" class="form-control col-md-4" formControlName="description" name="description" placeholder="The description *" id="description" required data-validation-required-message="Please enter the description." />
+                                                </div>
+                                                <div class="row mb-3" style="text-align: left;">
+                                                    <button class="btn btn-primary mt30 btn-white " (click)="filePicker.click()"> Pictures</button>
+                                                    <input type="file" class="form-control col-md-12" style="visibility:hidden" #filePicker (change)='onImageSelected($event)'><br>
+                                                    <img [src]="imagePreview" *ngIf="imagePreview" width="200px" heigth="200px">
+
+                                                </div>
+                                                <div class="row mb-3" style="text-align: center;">
+                                                    <button (click)="addExperience()" class="btn btn-primary mt30 btn-white "> Submit </button>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,61 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top fadeInDown" data-wow-delay="0.5s">
+    <div class="container" style="background-color: #eceeea;">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li> <a routerLink=""> Home  </a></li>
+                <li> <a routerLink="experiences"> Experiences  </a></li>
+                <li> <a routerLink="destinations"> Destinations  </a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Plan the trip  <span class="pe-7s-angle-down"></span></a>
+                    <ul class="dropdown-menu">
+                        <li> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Flights</a> </li>
+                        <li> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Accomodations</a> </li>
+                        <li> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Guides</a> </li>
+                    </ul>
+                </li>
+                <li *ngIf="((connected=='false')||(connected== null))"> <a routerLink="signup"> Sign up  </a></li>
+                <li *ngIf="((connected=='false')||(connected== null))"> <a routerLink="signin"> Sign in  </a></li>
+                <li *ngIf="(connected=='true')"> <a routerLink="account"> My Account  </a></li>
+                <li *ngIf="(connected=='true')" (click)="logout()"> <a> Log out  </a></li>
+
+
+
+                <li><a href="#search"><i class="pe-7s-search"></i></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+<div id="search-wrapper">
+    <button type="button" class="close">×</button>
+    <div class="vertical-center text-center">
+        <form>
+            <input type="search" value="" placeholder="Enter Search Term" />
+            <button type="submit" class="btn btn-primary btn-white">Search</button>
+        </form>
+    </div>
+</div>
+
+<!-- Header -->
+<header id="headerwrap" class="dark-wrapper backstretched special-max-height no-overlay">
+    <base href="/">
+    <div class="container vertical-center">
+        <div class="intro-text vertical-center text-left smoothie">
+            <div class="intro-heading wow fadeIn heading-font" data-wow-delay="0.2s">With Easy-Trip </div>
+            <div class="intro-sub-heading wow fadeIn secondary-font" data-wow-delay="0.4s"><span style="text-transform : capitalize;">Travelling </span> is a way <span class="rotate" style="text-transform : uppercase;">Better </span></div>
+        </div>
+    </div>
+</header>

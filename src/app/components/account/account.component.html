@@ -1,0 +1,63 @@
+<section>
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="col-sm-12 blog-item mb100 wow match-height">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="hover-item mb30">
+                                    <img [src]="connectedUser.image" class="img-responsive smoothie" alt="title">
+                                    <div class="overlay-item-caption smoothie"></div>
+                                    <div class="hover-item-caption smoothie">
+                                        <h3 class="vertical-center smoothie"><a href="#" class="smoothie btn btn-primary page-scroll" title="view article">View</a></h3>
+                                    </div>
+                                </div>
+                                <h2 class="post-title"><i class="pe-icon pe-7s-user"></i> {{connectedUser.firstName}} {{connectedUser.lastName}}</h2>
+                                <div class="item-metas text-muted mb30">
+                                    <span><i class="pe-icon pe-7s-mail"></i><span>  {{connectedUser.email}}</span></span>
+                                </div>
+                                <p>BIO: {{connectedUser.bio}}</p>
+                                <a class="btn btn-primary mt30" routerLink="editAccount">Edit Profil</a>
+                                <br>
+                                <a class="btn btn-primary mt30" routerLink="">Favoris</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-sm-8">
+                    <div class="col-12">
+                        <app-add-experience> </app-add-experience>
+                    </div>
+                    <div class="col-sm-12 blog-item mb100 wow match-height">
+                        <div *ngFor="let experience of myExperiences" class="row">
+                            <app-experience [experienceInput]="experience" [path]="path"></app-experience>
+                            <div class="col-10">
+                                <div class="col-sm-10 col-sm-offset-1 blog-item mb100 wow match-height">
+                                    <button (click)="like(experience._id)" class="tag-link btn btn-theme btn-xs " [ngClass]="{btnLikeStyle: 'btn-like'}" title="3 topics "><i class="pe-icon pe-7s-like2 "></i> Like</button>
+                                    <button (click)="comment(experience._id) " class="tag-link btn btn-theme btn-xs " title="3 topics "><i class="pe-icon pe-7s-comment "></i> Comment</button>
+                                    <button *ngIf="path=='experiences'" (click)="addToFavoris(experience._id) " class="tag-link btn btn-theme" (click)="addToFavoris() " class="tag-link btn btn-theme btn-xs " title="3 topics "><i class="pe-icon pe-7s-star "></i> Favoris</button>
+                                    <button *ngIf="path=='account'" (click)="edit(experience) " class="tag-link btn btn-theme btn-xs " title="3 topics "><i class="pe-icon pe-7s-edit "></i> Edit Post</button>
+                                    <button *ngIf="path=='account'" (click)="delete(experience._id) " class="tag-link btn btn-theme btn-xs " title="3 topics "><i class="pe-icon pe-7s-trash "></i> delete Post</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row paging text-center">
+                        <a class="btn btn-primary mt30" href="#">Older Posts</a>
+                    </div>
+
+
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+</section>

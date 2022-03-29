@@ -1,0 +1,26 @@
+<div class="col-sm-10 col-sm-offset-1 blog-item mb100 wow match-height" style="margin-bottom:0;margin-top:10px">
+    <div class="row">
+        <div class="col-xs-12">
+            <h2 class="post-title">{{experienceInput.title}}</h2>
+            <div class="item-metas text-muted mb30">
+                <span class="meta-item"><i class="pe-icon pe-7s-user"></i> AUTHOR <span>{{experienceInput.writer}}</span></span>
+            </div>
+            <div class="item-metas text-muted mb30">
+                <span class="meta-item"><i class="pe-icon pe-7s-map-marker"></i> DESTINATION <span>{{experienceInput.destination}}</span></span>
+            </div>
+            <div class="item-metas text-muted mb30">
+                <span class="meta-item"> DESCRIPTION </span>
+                <br>
+                <p> {{experienceInput.description}}</p>
+
+            </div>
+
+            <div class="hover-item mb30" style="margin-bottom:none;">
+                <img [src]="experienceInput.images" class="img-responsive smoothie" alt="title">
+                <!-- <img [src]={{experienceInput.images}} class="img-responsive smoothie" alt="title"> -->
+
+            </div>
+
+        </div>
+    </div>
+</div>

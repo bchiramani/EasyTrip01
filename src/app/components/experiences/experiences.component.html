@@ -1,0 +1,104 @@
+<section>
+
+    <div class="section-inner">
+        <div class="container">
+            <div class="row">
+                <div id="post-sidebar" class="col-sm-10 ">
+                    <div class="widget mb50">
+                        <div class="row">
+                            <div class="col-sm-12 col-sm-offset-1">
+
+                                <!-- <form class="main-contact-form wow">
+                                    <div>
+                                        <input type="text" class="form-control col-md-6 " placeholder="Search For an experience" [(ngModel)]='searchKey' [ngModelOptions]="{standalone:true}">
+                                    </div>
+                                </form> -->
+                                <form>
+                                    <div class="text-center">
+                                        <h5> Search </h5>
+                                        <input type="text" [(ngModel)]='searchKey' [ngModelOptions]="{standalone:true}">
+                                        <br>
+                                    </div>
+                                </form>
+                                <div class="col-sm-12 col-sm-offset-1">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <th scope="col">Experience's Title</th>
+                                            <th scope="col">Experience's Destination </th>
+                                            <th scope="col">Experience's Writer</th>
+                                            <th scope="col">Experience's Description</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let experience of pageOfItems|myFilter:searchKey">
+                                                <td>{{experience.title}}</td>
+                                                <td>{{experience.destination}}</td>
+                                                <td>{{experience.writer}}</td>
+                                                <td>{{experience.description}}</td>
+                                                <!-- <td style="width:20px;height:20px;"> <img src="../../../assets/img/blog/blog3.jpg"></td> -->
+                                            </tr>
+
+                                        </tbody>
+                                        <div class="card-footer pb-0 pt-3 text-center ">
+                                            <jw-pagination [items]="experiences" (changePage)="onChangePage($event)"></jw-pagination>
+                                        </div>
+                                    </table>
+
+                                </div>
+                            </div>
+                            <!-- <div class="col-sm-5 col-sm-offset-1">
+                                <h5> search by Writer</h5>
+                                <form [formGroup]="searchByWriterForm" class="main-contact-form wow">
+                                    <div class="row">
+                                        <input type="text" class="form-control col-md-6" formControlName="writerName" name="writerName" placeholder="Writer Name" id="writerName" required data-validation-required-message="Enter the writer's name." />
+                                        <button (click)="searchByWriterName()" class="tag-link btn btn-theme btn-xs"> Search </button>
+                                    </div>
+                                </form>
+                            </div> -->
+
+
+                        </div>
+
+                    </div>
+                </div>
+                <div style="margin-left:50%">
+                    <app-loader *ngIf="!experiences"></app-loader>
+                </div>
+                <div class="col-sm-10">
+                    <div class="col-sm-12 blog-item mb100 wow match-height">
+                        <div *ngFor="let experience of experiences" class="row">
+                            <app-experience [experienceInput]="experience" [path]="path"></app-experience>
+                            <div class="col-10">
+                                <div class="col-sm-10 col-sm-offset-1 blog-item mb100 wow match-height">
+                                    <button (click)="like(experience._id)" class="tag-link btn btn-theme btn-xs " [ngClass]="{btnLikeStyle: 'btn-like'}" title="3 topics "><i class="pe-icon pe-7s-like2 "></i> Like</button>
+                                    <button (click)="comment(experience._id) " class="tag-link btn btn-theme btn-xs " title="3 topics "><i class="pe-icon pe-7s-comment "></i> Comment</button>
+                                    <button *ngIf="path=='experiences'" (click)="addToFavoris(experience._id) " class="tag-link btn btn-theme" (click)="addToFavoris() " class="tag-link btn btn-theme btn-xs " title="3 topics "><i class="pe-icon pe-7s-star "></i> Favoris</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-sm-2">
+                    <div class="widget mb50">
+                        <h4 class="widget-title">Add your Experience</h4>
+                        <div class="tagcloud">
+                            <a routerLink="account" class="tag-link btn btn-theme btn-xs" title="3 topics">Add new experience</a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+
+            <div class="row paging text-center">
+                <a class="btn btn-primary mt30" href="#">Older Posts</a>
+            </div>
+        </div>
+    </div>
+</section>

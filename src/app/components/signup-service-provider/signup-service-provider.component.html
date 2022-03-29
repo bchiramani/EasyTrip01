@@ -1,0 +1,77 @@
+<div class="col-xs-6" style="margin-top:100px">
+    <section class="dark-wrapper opaqued parallax" style="background-color:#7795a1;color: #eceeea;">
+        <div class="container">
+            <div class="row">
+                <!-- style="margin-top:50px;margin-bottom: 50px;text-align:center" -->
+                <div class="col-sm-5" style="margin:20px">
+                    <div class="row">
+                        <div class="col-lg-12 mb100 wow">
+                            <h2 class="section-heading">Sign Up</h2>
+                            <h3 class="section-subheading secondary-font">As a service provider.</h3>
+                        </div>
+                    </div>
+                    <div id="message"></div>
+                    <form [formGroup]="signupServiceProviderForm" style="color:#7b8052" class="main-contact-form wow">
+                        <div class="row">
+                            <input type="text" class="form-control col-md-6" formControlName="name" name="name" placeholder="Company Name *" id="name" required data-validation-required-message="Please enter your company's name." />
+                            <div *ngIf="signupServiceProviderForm.controls['name'].invalid && (signupServiceProviderForm.controls['name'].touched || signupServiceProviderForm.controls['name'].dirty)">
+                                <div *ngIf="signupServiceProviderForm.controls['name'].errors.required" class="text-danger">
+                                    Name is Required
+                                </div>
+                                <div *ngIf="signupServiceProviderForm.controls['name'].errors.minlength" class="text-danger">
+                                    Name Min Length is 3
+                                </div>
+                            </div>
+                            <input type="text" class="form-control col-md-6" formControlName="email" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />
+                            <div *ngIf="signupServiceProviderForm.controls['email'].invalid && (signupServiceProviderForm.controls['email'].touched || signupServiceProviderForm.controls['email'].dirty)">
+                                <div *ngIf="signupServiceProviderForm.controls['email'].errors.required" class="text-danger">
+                                    email is required
+                                </div>
+                                <div *ngIf="signupServiceProviderForm.controls['email'].errors.email" class="text-danger">
+                                    invalid email
+                                </div>
+                                <div style="color: red">
+                                    {{errMessage}}
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <input type="password" class="form-control col-md-6" formControlName="password" placeholder="Your Password*" name="password" id="password" />
+                        <div *ngIf="signupServiceProviderForm.controls['password'].invalid && (signupServiceProviderForm.controls['password'].touched || signupServiceProviderForm.controls['password'].dirty)">
+                            <div *ngIf="signupServiceProviderForm.controls['password'].errors.required" class="text-danger">
+                                Password is Required
+                            </div>
+                            <div *ngIf="signupServiceProviderForm.controls['password'].errors.minlength" class="text-danger">
+                                Password Min Length is 5
+                            </div>
+                        </div>
+                        <input type="password" class="form-control col-md-6" formControlName="confirmPassword" placeholder="Your Password Again*" name="Confirmpassword" id="confirmPassword" />
+                        <div *ngIf="signupServiceProviderForm.controls['confirmPassword'].invalid &&(signupServiceProviderForm.controls['confirmPassword'].dirty||signupServiceProviderForm.controls['confirmPassword'].touched)">
+                            <div *ngIf="signupServiceProviderForm.controls['confirmPassword'].errors.mustMatch" class="text-danger">
+                                Passwords must match
+                            </div>
+                        </div>
+                        <select class="form-select form-control col-md-6 " formControlName="type" name="type" aria-label="Default select example">
+                            <option selected style="color:#3c5049">Select your service type</option>
+                            <option value="Flights" style="color:#3c5049">Flights</option>
+                            <option value="Accomodation" style="color:#3c5049">Accomodation</option>
+                            <option value="Guides" style="color:#3c5049" >Guides</option>
+                            <option value="Travel agency" style="color:#3c5049" >Travel agency</option>
+
+                        </select>
+                        <div class="row mb-3" style="text-align: left;">
+                            <input type="file" class="form-control col-md-6" name="profile picture" style="visibility:hidden;" #filePicker/>
+                            <input type="file" class="form-control col-md-1" style="visibility:hidden" #filePicker (change)='onImageSelected($event)'><br>
+                            <button class="btn btn-primary mt30 btn-white " (click)="filePicker.click()"> Profil Picture</button>
+
+                            <img [src]="imagePreview" *ngIf="imagePreview" width="200px" heigth="200px">
+
+                        </div>
+                        <button (click)="signupServiceProvider()" class="btn btn-primary mt30 btn-white pull-right"> Submit </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

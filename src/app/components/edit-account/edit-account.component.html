@@ -1,0 +1,84 @@
+<!-- <section style="background-color:#eceeea;">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 blog-item mb100 wow match-height">
+            <div class="row">
+                <div class="col-xs-12" style="margin-top:100px">
+                    <section class="dark-wrapper opaqued parallax" style="background-color:#7b8052;color: #eceeea;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-8 col-sm-offset-2" style="margin-top:50px;margin-bottom: 50px;text-align:center">
+                                    <div class="row">
+                                        <div class="col-lg-12 mb100 wow">
+                                            <h2 class="section-heading">Edit Your Account {{connectedUser.lastName}}</h2>
+                                            <h3 class="section-subheading secondary-font">Whenever you want.</h3>
+                                        </div>
+                                    </div>
+                                    <div id="message"></div>
+                                    <form [formGroup]="editForm" style="color:#7b8052" class="main-contact-form wow">
+                                        <div class="row">
+                                            <input type="text" class="form-control col-md-6" [(ngModel)]="connectedUser.lastName" formControlName="firstName" name="firstName" placeholder="Your First Name *" id="name" required data-validation-required-message="Please enter your first name." />
+                                            <div *ngIf="signupForm.controls['firstName'].invalid && (signupForm.controls['firstName'].touched || signupForm.controls['firstName'].dirty)">
+                                                <div *ngIf="signupForm.controls['firstName'].errors.required" class="text-danger">
+                                                    First Name is Required
+                                                </div>
+                                                <div *ngIf="signupForm.controls['firstName'].errors.minlength" class="text-danger">
+                                                    First Name Min Length is 3
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control col-md-6" [(ngModel)]="connectedUser.lastName" formControlName="lastName" name="lastName" placeholder="Your Last Name *" id="name" required data-validation-required-message="Please enter your last name." />
+                                            <div *ngIf="signupForm.controls['lastName'].invalid && (signupForm.controls['lastName'].touched || signupForm.controls['lastName'].dirty)">
+                                                <div *ngIf="signupForm.controls['lastName'].errors.required" class="text-danger">
+                                                    Last Name is Required
+                                                </div>
+                                                <div *ngIf="signupForm.controls['lastName'].errors.minlength" class="text-danger">
+                                                    Last Name Min Length is 3
+                                                </div>
+                                            </div>
+                                            <input type="text" class="form-control col-md-6" [(ngModel)]="connectedUser.email" formControlName="email" name="email" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address." />
+                                            <div *ngIf="signupForm.controls['email'].invalid && (signupForm.controls['email'].touched || signupForm.controls['email'].dirty)">
+                                                <div *ngIf="signupForm.controls['email'].errors.required" class="text-danger">
+                                                    email is required
+                                                </div>
+                                                <div *ngIf="signupForm.controls['email'].errors.email" class="text-danger">
+                                                    invalid email
+                                                </div>
+                                                <div style="color: red">
+                                                    {{errMessage}}
+                                                </div>
+                                            </div>
+                                            <input type="number" class="form-control col-md-6" formControlName="age" name="age" placeholder="Your Age *" id="age" />
+                                            <input type="textarea" class="form-control col-md-6" formControlName="bio" name="bio" placeholder="Your Bio *" id="age" />
+                                            <select class="form-select form-control col-md-6 " formControlName="country" name="country" aria-label="Default select example">
+                                                <option selected style="color:#3c5049">Select your country</option>
+                                                <option value="1" style="color:#3c5049">Tunisia</option>
+                                                <option value="2" style="color:#3c5049">France</option>
+                                                <option value="3" style="color:#3c5049" >Italy</option>
+                                            </select>
+                                        </div>
+                                        <input type="password" class="form-control col-md-6" formControlName="password" placeholder="Your Password*" name="password" id="password" />
+                                        <div *ngIf="signupForm.controls['password'].invalid && (signupForm.controls['password'].touched || signupForm.controls['password'].dirty)">
+                                            <div *ngIf="signupForm.controls['password'].errors.required" class="text-danger">
+                                                Password is Required
+                                            </div>
+                                            <div *ngIf="signupForm.controls['password'].errors.minlength" class="text-danger">
+                                                Password Min Length is 5
+                                            </div>
+                                        </div>
+                                        <input type="password" class="form-control col-md-6" formControlName="confirmPassword" placeholder="Your Password Again*" name="Confirmpassword" id="confirmPassword" />
+                                        <div *ngIf="signupForm.controls['confirmPassword'].invalid &&(signupForm.controls['confirmPassword'].dirty||signupForm.controls['confirmPassword'].touched)">
+                                            <div *ngIf="signupForm.controls['confirmPassword'].errors.mustMatch" class="text-danger">
+                                                Passwords must match
+                                            </div>
+                                        </div>
+
+                                        <button (click)="save()" class="btn btn-primary mt30 btn-white pull-right"> Save changes </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> -->
